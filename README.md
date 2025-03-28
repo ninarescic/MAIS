@@ -1,10 +1,13 @@
+
 # MAIS
 ## MultiAgent Information/Infection Spread Model 
+<img src="./doc/fig/mais.png" float="right" width="5%"/>
 
 
 
 <!--- PDF BREAK -->
 
+The MAIS Model is a collection of models for simulation of information or infection spread.
 
 For technical details see the [model documentation](doc/model.md).
 
