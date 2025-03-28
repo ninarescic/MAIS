@@ -9,7 +9,21 @@
 The MAIS Model is a collection of agent based network models for simulation of information or infection spread. 
 You can use your own network (graph) or play with demo graphs included in this repository. You can derive your own models with customised set of agent states or encode customised policy modules.   
 
-For technical details see the [model documentation](doc/model.md).
+For information spread use:
+  + [InfoSIRModel](src/models/agent_info_models.py)
+    - the implementation of SIR model
+    - parameters:
+      - `beta`: transmision strenght
+      - `I_duration`: duration in state I in days
+    - policy functions:
+      - [`Spreader`](src/policies/spreader_policy.py): seeds the source of infomation to the node with pagerank of given quantile
+             
+  + TippingModel
+    - to be implemented soon 
+
+ For infection spread use:
+   + [SimulationDrivenModel](src/models/agent_based_network_model.py)
+      - See the [model documentation](doc/model.md) for technical details.
 
 
 ## Examples of Simulation Results
