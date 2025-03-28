@@ -5,9 +5,6 @@
 
 <!--- PDF BREAK -->
 
-#### Model M schema
-
-**TODO picture of simplier model schema**
 
 For technical details see the [model documentation](doc/model.md).
 
