@@ -1,4 +1,4 @@
-# MultiAgent Information Spread Model 
+# MAIS - MultiAgent Information/Infection Spread Model 
 
 
 
