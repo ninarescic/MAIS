@@ -1,6 +1,6 @@
 
 # <img src="./doc/fig/mais.png" style="float: right;" width="5%"/> MAIS
-## MultiAgent Information/Infection Spread Model 
+## Multi-Agent Information/Infection Spread Model 
 
 
 
