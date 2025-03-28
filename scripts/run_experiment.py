@@ -69,10 +69,10 @@ import logging
 #     return "\n".join(story)
 
 
-def demo(filename, test_id=None, model_random_seed=42,  print_interval=1, n_repeat=1):
+def demo(cf, test_id=None, model_random_seed=42,  print_interval=1, n_repeat=1):
 
-    cf = ConfigFile()
-    cf.load(filename)
+    # cf = ConfigFile()
+    # cf.load(filename)
 
     # create model
     model = load_model_from_config(cf, model_random_seed)
@@ -177,6 +177,7 @@ def test(const_random_seed, user_random_seed,  print_interval, n_repeat, log_lev
 
     logging.basicConfig(format='%(levelname)s:%(module)s:%(lineno)d: %(message)s',
                         level=log_level)
+
 
     print(f"ACTION LOG: random seed {random_seed}")
     def demo_fce(): return demo(filename, test_id,
