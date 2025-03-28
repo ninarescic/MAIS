@@ -6,41 +6,11 @@
 
 <!--- PDF BREAK -->
 
-The MAIS Model is a collection of models for simulation of information or infection spread.
+The MAIS Model is a collection of agent based network models for simulation of information or infection spread. 
+You can use your own network (graph) or play with demo graphs included in this repository. You can derive your own models with customised set of agent states or encode customised policy modules.   
 
 For technical details see the [model documentation](doc/model.md).
 
-## Authors
-
-<details>
-<summary>click to expand</summary>
-
-**Luděk Berec**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*, *Centre for
-Mathematical Biology, Institute of Mathematics, Faculty of Science, University of South Bohemia and Czech Academy of
-Sciences, Biology Centre, Institute of Entomology*&nbsp;<sup>3</sup> <br>
-**Tomáš Diviák**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*, *Department of
-Criminology and Mitchell Centre for Social Network Analysis, School of Social Sciences, University of Manchester* <sup>
-3</sup> <br>
-**Aleš Kuběna**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*&nbsp;<sup>3</sup> <br>
-**René Levinský**, *CERGE-EI*&nbsp;<sup>3</sup> <br>
-**Roman Neruda**, *The Czech Academy of Sciences, Institute of Computer Science*&nbsp;<sup>3</sup> <br>
-**Gabriela Suchopárová**, *The Czech Academy of Sciences, Institute of Computer Science*&nbsp;<sup>3</sup> <br>
-**Josef Šlerka**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*, *New Media Studies,
-Faculty of Arts, Charles University*&nbsp;<sup>3</sup> <br>
-**Martin Šmíd**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*&nbsp;<sup>3</sup> <br>
-**Jan Trnka**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*, *Department of
-Biochemistry, Cell and Molecular Biology, Third Faculty of Medicine, Charles University*&nbsp;<sup>3</sup> <br>
-**Vít Tuček**, *The Czech Academy of Sciences, Institute of Computer Science*, *Department of Mathematics, University of
-Zagreb*&nbsp;<sup>3</sup> <br>
-**Petra Vidnerová**, *The Czech Academy of Sciences, Institute of Computer Science*&nbsp;<sup>3</sup> <br>
-**Karel Vrbenský**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*&nbsp;<sup>
-3</sup> <br>
-**Milan Zajíček**, *The Czech Academy of Sciences, Institute of Information Theory and Automation*&nbsp;<sup>
-3</sup> <br>
-**František Zapletal**, *The Czech Academy of Sciences, Institute of Information Theory and Automation* <br>
-
-<sup>3</sup> Centre for Modelling of Biological and Social Processes
-</details>
 
 ## Examples of Simulation Results
 
