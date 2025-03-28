@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
 
 import utils.global_configs as global_configs
-from utils.config_utils import ConfigFile
+from utils.config_utils import ConfigFile, ConfigFileGenerator
 from graphs.graph_gen import GraphGenerator
 
 from models.model_zoo import model_zoo
@@ -177,12 +177,19 @@ def test(const_random_seed, user_random_seed,  print_interval, n_repeat, log_lev
 
     logging.basicConfig(format='%(levelname)s:%(module)s:%(lineno)d: %(message)s',
                         level=log_level)
+        
+    cf_generator = ConfigFileGenerator().load(filename)
+    for cf in cf_generator:
+        my_id = test_id
+        suffix = cf.section_as_dict("OUTPUT_ID").get("id", None)    
+        if suffix is not None:
+            my_id += suffix
 
-
-    print(f"ACTION LOG: random seed {random_seed}")
-    def demo_fce(): return demo(filename, test_id,
-                                model_random_seed=random_seed,  print_interval=print_interval, n_repeat=n_repeat)
-    print(timeit.timeit(demo_fce, number=1))
+        print(f"Running {test_id}")
+        print(f"ACTION LOG: random seed {random_seed}")     
+        def demo_fce(): return demo(cf, my_id,
+                                    model_random_seed=random_seed,  print_interval=print_interval, n_repeat=n_repeat)
+        print(timeit.timeit(demo_fce, number=1))
 
 
 if __name__ == "__main__":

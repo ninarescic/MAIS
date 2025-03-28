@@ -72,7 +72,7 @@ class ConfigFile():
         text_id = ""
         for variable in output_id:
             section, name = variable.split(":")
-            text_id += f"_{section}_{name}={self.section_as_dict(section).get(name.lower(), None)}"
+            text_id += f"_{section}_{name}={self.section_as_dict(section).get(name, None)}"
         text_id = text_id.replace(" ", "_")
         self.config["OUTPUT_ID"]["id"] = text_id
 
