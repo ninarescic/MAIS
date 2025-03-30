@@ -17,7 +17,7 @@ For information spread use:
       - `I_duration`: duration in state I in days
     - policy functions:
       - [`Spreader`](src/policies/spreader_policy.py): seeds the source of information to the node with pagerank corresponding to given quantile             
-  + TippingModel
+  + InfoTippingModel
     - to be implemented soon 
 
  For infection spread use:
@@ -28,27 +28,13 @@ For information spread use:
 ## Examples of Simulation Results
 
 Please follow the links to find out more details about the examples presented.
-
++ *InfoSIRModel* <br>
+  Simple examples of information spread modelling using SIR model `InfoSIRModel`.
++ *TippingModel* <br>
+  Simple examples of information spread modelling using Tipping model `InfoTippingModel`.
 + [Demo](doc/demo.md) <br>
-  Some simple examples that present a good starting point for testing this software.
+  Simple examples of infection transmission model using `SimulationDrivenModel`.
 
-+ [Comparison of different contact tracing levels](doc/experiment1.md) <br>
-  Study of different contact tracing level impacts.
-  <table>
-    <tr>
-      <td><a href="doc/experiment1.md"><img alt="example of result1" src="doc/fig/exp1_all_infected.png"/></a></td>	
-      <td><a href="doc/experiment1.md"><img alt="example of result1" src="doc/fig/exp1_id.png"/></a></td>
-    </tr>
-  </table>
-
-+ [Comparison of scenarios with closures and without closures](doc/experiment2.md)<br>
-  Case study of contacts reduction.
-  <table>
-    <tr>
-      <td><a href="doc/experiment2.md"><img alt="example of result2" src="doc/fig/exp2_all_infected.png"/></a></td>	
-      <td><a href="doc/experiment2.md"><img alt="example of result2" src="doc/fig/exp2_id.png"/></a></td>
-    </tr>
-  </table>
 
 # Installation
 
