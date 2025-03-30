@@ -46,8 +46,11 @@ conda activate mgraph
 conda install --file requirements_conda.txt -y
 python -m pip install -r requirements.txt
 ```
-
-For other options and/or more help please refer to the [installation instructions](doc/installation.md).
+If you want to create an animation from your simulation (script [animate.py](scripts/animate.py)) or you want to use `Spreader policy` function for information spread seeding, install `graph-tool`: 
+```console
+conda install -c conda-forge graph-tool
+```
+<!--For other options and/or more help please refer to the [installation instructions](doc/installation.md).-->
 
 # Usage
 
