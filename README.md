@@ -28,9 +28,9 @@ For information spread use:
 ## Examples of Simulation Results
 
 Please follow the links to find out more details about the examples presented.
-+ *InfoSIRModel* <br>
++ [InfoSIRModel](doc/sir.md) <br>
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.
-+ *TippingModel* <br>
++ [TippingModel](doc/tipping.md) <br>
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.
 + [Demo](doc/demo.md) <br>
   Simple examples of infection transmission model using `SimulationDrivenModel`.
