@@ -30,6 +30,7 @@ For information spread use:
 Please follow the links to find out more details about the examples presented.
 + [InfoSIRModel](doc/sir.md) <br>
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.
+  <img src="doc/fig/demo_verona_sir.png"/>
 + [TippingModel](doc/tipping.md) <br>
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.
 + [Demo](doc/demo.md) <br>
