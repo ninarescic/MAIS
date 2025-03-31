@@ -29,12 +29,14 @@ For information spread use:
 
 Please follow the links to find out more details about the examples presented.
 + [InfoSIRModel](doc/sir.md) <br>
-  Simple examples of information spread modelling using SIR model `InfoSIRModel`.
-  <img src="doc/fig/demo_verona_sir.png"/>
+  Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
+  <img src="doc/fig/demo_verona_sir.png" width="30%"/>
 + [TippingModel](doc/tipping.md) <br>
-  Simple examples of information spread modelling using Tipping model `InfoTippingModel`.
+  Simple examples of information spread modelling using Tipping model `InfoTippingModel`.<br>
+  <img src="doc/fig/demo_verona_tipping.png" width="30%"/>
 + [Demo](doc/demo.md) <br>
-  Simple examples of infection transmission model using `SimulationDrivenModel`.
+  Simple examples of infection transmission model using `SimulationDrivenModel`.<br>
+  <img src="doc/fig/demo_tracing.png" width="30%"/>
 
 
 # Installation
