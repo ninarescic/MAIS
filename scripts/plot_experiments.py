@@ -88,13 +88,12 @@ def plot_dfs(dfs, column, figsize, out_path, xlabel, ylabel, labels=None, title=
 
             ax.fill_between(df["T"].unique(), q1, q3, alpha=0.3, label='_nolegend_')
             
-
+    if ax.legend_:
+        ax.legend_.remove()
     if fit_me is not None:
         ax.plot(fit_me['T'], fit_me[column])
 
-    if labels is not None:
-        fig.legend(labels)
-
+    
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
 
@@ -105,6 +104,9 @@ def plot_dfs(dfs, column, figsize, out_path, xlabel, ylabel, labels=None, title=
         ax.xaxis.set_minor_formatter(plt.FixedFormatter(day_labels))
         ax.grid(which="minor", axis="x", linestyle="--", linewidth=1)
         plt.setp(ax.xaxis.get_minorticklabels(), rotation=70)
+
+    if labels is not None:
+        fig.legend(labels, loc="upper right", framealpha=1.0)
 
     fig.tight_layout()
     plt.savefig(out_path)
