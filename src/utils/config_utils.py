@@ -70,6 +70,8 @@ class ConfigFile():
         if output_id is None:
             return 
         text_id = ""
+        if not isinstance(output_id, list):
+            output_id = [output_id]
         for variable in output_id:
             section, name = variable.split(":")
             text_id += f"_{section}_{name}={self.section_as_dict(section).get(name, None)}"

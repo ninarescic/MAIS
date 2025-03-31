@@ -6,7 +6,7 @@ from models.extended_network_model import ExtendedNetworkModel, ExtendedDailyNet
 from models.extended_network_model import TGMNetworkModel
 # from models.seirs_extended import ExtendedNetworkModel as OldExtendedNetworkModel
 from models.agent_based_network_model import SimulationDrivenModel
-from models.agent_info_models import InfoSIRModel
+from models.agent_info_models import InfoSIRModel, InfoTippingModel
 
 model_zoo = {
     "ExtendedNetworkModel": ExtendedNetworkModel,
@@ -16,5 +16,6 @@ model_zoo = {
     #   "SEIRSNetworkModel": SEIRSNetworkModel,
     "TGMNetworkModel": TGMNetworkModel,
     "SimulationDrivenModel": SimulationDrivenModel,
-    "InfoSIRModel": InfoSIRModel
+    "InfoSIRModel": InfoSIRModel,
+    "InfoTippingModel": InfoTippingModel
 }

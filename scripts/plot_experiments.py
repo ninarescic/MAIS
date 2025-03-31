@@ -79,20 +79,21 @@ def plot_dfs(dfs, column, figsize, out_path, xlabel, ylabel, labels=None, title=
         if labels is not None:
             label = labels[i] 
         sns.lineplot(x='T', y=column, data=df, label=label,
-                     estimator=estimator, errorbar=None, ax=ax)
-
+                     estimator=estimator, errorbar=ci, ax=ax)
+        
         if not use_sd:
             df_stats = df.groupby(["T"]).describe()
             q1 = df_stats[column]["25%"]
             q3 = df_stats[column]["75%"]
 
-            ax.fill_between(df["T"].unique(), q1, q3, alpha=0.3, label=None)
+            ax.fill_between(df["T"].unique(), q1, q3, alpha=0.3, label='_nolegend_')
+            
 
     if fit_me is not None:
         ax.plot(fit_me['T'], fit_me[column])
 
-    # if labels is not None:
-    #     ax.legend(labels)
+    if labels is not None:
+        fig.legend(labels)
 
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)

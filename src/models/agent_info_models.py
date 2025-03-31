@@ -21,6 +21,11 @@ class STATES():
     R = 2
     EXT = 10
 
+class Tipping():
+    S = 0
+    ACTIVE = 1
+    EXT = 10
+
 
 class InfoSIRModel(SimulationEngine):
     states = [
@@ -226,5 +231,124 @@ class InfoSIRModel(SimulationEngine):
         super().run_iteration()
 
  
-              
+class InfoTippingModel(SimulationEngine):
+
+    states = [
+        Tipping.S,
+        Tipping.ACTIVE,
+        Tipping.EXT
+    ]
+
+    num_states = len(states)
+
+    state_str_dict = {
+        Tipping.S : "S",
+        Tipping.ACTIVE: "Active",
+        Tipping.EXT: "Ext"
+    }
+    ext_code = STATES.EXT
+
+    
+    transitions = [
+        (Tipping.S, Tipping.ACTIVE)
+    ]
+
+    num_transitions = len(transitions)
+
+    model_parameters = {
+                "theta": (0,  "threshold"),    
+    }
+
+
+    def states_and_counts_init(self, ext_nodes=None, ext_code=None):
+        super().states_and_counts_init(ext_nodes, ext_code)
+
+        # need_check - state that needs regular checkup
+        self.need_check = self.memberships[Tipping.S]
+
+        self.update_plan(np.ones(self.num_nodes, dtype=bool))
+
+    def _transmission(self):
+        """ Returns boolean vector, for each node whether it is newly activated. """ 
+        ret = np.zeros(self.num_nodes, dtype=bool)
+        active_nodes = self.memberships[Tipping.S]
+
+        edges_probs = self.graph.get_all_edges_probs()
+        num_edges = len(edges_probs)
+        print("num edges", num_edges)
+        r = np.random.rand(num_edges)
+        active_edges = (r < edges_probs) #.nonzero()[0] #bitmap
+        
+        for i, node in enumerate(self.graph.nodes):
+            # bitmap of node's edges
+            my_edges = self.graph.e_source == node
+            print("my_edges", my_edges.shape)
+            # keep only those that are active 
+            my_edges = np.logical_and(
+                my_edges,
+                active_edges
+            ).nonzero()[0]
+            print("my_edges (after logical and)", my_edges.shape, my_edges.dtype)
+            
+            if len(my_edges) == 0:
+                continue
+
+            # take destination nodes
+            my_neighbours = self.graph.e_dest[my_edges]
+            print("my neighbours", my_neighbours.shape)
+        
+            active_neighbours = my_neighbours[(self.memberships[Tipping.ACTIVE] == 1)[my_neighbours].ravel()]
+            print("active neighbours", active_neighbours.shape)
+
+            my_edges_to_active = np.isin(self.graph.e_dest[my_edges], active_neighbours)
+
+            print("my_edges_to_active", my_edges_to_active.shape)
+
+            sum_all = self.graph.e_intensities[my_edges].sum()
+            sum_active = self.graph.e_intensities[my_edges][my_edges_to_active].sum()
+
+            if sum_active / sum_all > self.theta[node]:
+                ret[i] = 1.0
+        
+        return ret 
+
+    def daily_update(self, nodes):
+        """
+        Everyday checkup
+        """
+
+        # S
+        target_nodes = self._get_target_nodes(nodes, Tipping.S)      
+
+        # if we have external nodes
+        if self.num_ext_nodes > 0:
+            raise NotImplementedError("External nodes not present in Tipping Model.")    
+
+        # try infection 
+        transmission = self._transmission().flatten()
+
+        self.time_to_go[transmission] = 1
+        self.state_to_go[transmission] = Tipping.ACTIVE
+
+
+    def update_plan(self, nodes):
+        """ This is done for nodes that  just changed their states.
+        New plans are generated according the state."""
+
+        # STATES.S:     "S",
+        target_nodes = self._get_target_nodes(nodes, Tipping.S)
+        
+        self.time_to_go[target_nodes] = -1
+        self.state_to_go[target_nodes] = Tipping.S
+        self.need_check[target_nodes] = True
+
+        # STATES.Active:   "Active"
+        target_nodes = self._get_target_nodes(nodes, Tipping.ACTIVE)
+        self.time_to_go[target_nodes] = -1  
+        self.state_to_go[target_nodes] = Tipping.ACTIVE
+        self.need_check[target_nodes] = False
+
+
+
+            
   
