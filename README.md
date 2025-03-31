@@ -17,9 +17,11 @@ For information spread use:
       - `I_duration`: duration in state I in days
     - policy functions:
       - [`Spreader`](src/policies/spreader_policy.py): seeds the source of information to the node with pagerank corresponding to given quantile             
-  + InfoTippingModel
-    - to be implemented soon 
-
+  + [InfoTippingModel](src/models/agent_info_models.py)
+    - the implementation of Tipping model
+    - parameters:
+        - `theta`: the threshold
+          
  For infection spread use:
    + [SimulationDrivenModel](src/models/agent_based_network_model.py)
       - See the [model documentation](doc/model.md) for technical details.
