@@ -15,4 +15,4 @@ done
 LABELS=`echo $LABELS | sed 's/^,//g' | eval sed 's/history_${EXP_ID}//g'`
 
 python plot_experiments.py $FILENAMES --label_names $LABELS --out_file ${EXP_ID}.png --column ${COLUMN} 
-geeqie ${EXP_ID}.png
+#geeqie ${EXP_ID}.png
