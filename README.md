@@ -68,6 +68,9 @@ cd scripts
 Most of the following commands take as a parameter the name of an INI file. The INI file describes all the configuration
 settings and locations of other files used. Please refer to [INI file specification](doc/inifile.md) for details.
 
+**Tip**: Instead of a single value in INI file, use a semicolon (;) separated list of values. 
+Such INI file will be expanded to the set of configs, each config will be processed separately.
+
 There are several INIs provided so that you can base your experiments on these settings:
 
 |filename|description|
