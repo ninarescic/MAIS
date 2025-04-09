@@ -54,7 +54,7 @@ conda install --file requirements_conda.txt -y
 ```console
 conda install -c conda-forge graph-tool
 ```
-**Troubleshooting:** Graph-tool often takes extreme amount time to install. In such case, it helps to first install `graph-tool` into the clean new environment, and second install the rest of  packages.
+**Troubleshooting:** Graph-tool often takes extreme amount of time to install. In such case, it helps to first install `graph-tool` into the clean new environment, and second install the rest of  packages.
 
 <!--For other options and/or more help please refer to the [installation instructions](doc/installation.md).-->
 
