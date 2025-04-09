@@ -49,6 +49,7 @@ All the requirements can be installed using [conda](https://docs.conda.io/en/lat
 conda create -n mais python=3.12 -y
 conda activate mais
 conda install --file requirements_conda.txt -y
+pip install requirements.txt 
 ```
 **Optional:** If you want to create an animation from your simulation (script [animate.py](scripts/animate.py)) or you want to use `Spreader policy` function for information spread seeding, install `graph-tool`: 
 ```console
