@@ -12,7 +12,7 @@ This document lists all the sections and their keys.
 |duration_in_days|number|60|duration of the simulation in days|
 |print_interval|number|1|period of printing the information of numbers of nodes in individual states, in days, -1 = never print| 
 |verbose|string|Yes|Use no for no output during simulation| 
-|model|string|SimulationDrivenModel|type of model for backward compatibility; older models are not supported, change at own risk|
+|model|string|SimulationDrivenModel|type of model (select from InfoSIRModel, InfoTippingModel, SimulationDrivenModel; other Models are no more supported, use the at your own risk)|
 |save_node_states|string|No|if "Yes", states of all nodes are saved| 
 |monitor_node|number|None|If you provide a number of a node, this node is tracked and information about state changes, testing, quarantine, etc. are printed. Hint: Gabriela is 29681|
 |output_dir|string|.|path to directory which is used for saving output files|
@@ -31,6 +31,17 @@ This document lists all the sections and their keys.
 |quarantine|string|--|filename for quarantine specification, optional, needed only by graphs with custom layers|
 |layer_groups|string|--|layer groups defition for contact tracing, optional, needed only by graphs with custom layers|
 |file|string|town.pickle|filename to save the pickled graph|
+
+# MODEL and POLICY
+
+MODEL and POLICY sections depend on the model type used. 
+
+For InfoSir Model use: 
+
+For InfoTipping Model use:
+
+
+for SimulationDrivenModel (infection spread) use:
 
 # MODEL
 
