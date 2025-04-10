@@ -43,18 +43,20 @@ Please follow the links to find out more details about the examples presented.
 
 # Installation
 
-All the requirements can be installed using [conda](https://docs.conda.io/en/latest/):
+All the requirements can be installed using [conda](https://docs.conda.io/en/latest/) (plus some packages using pip):
 
 ```console
 conda create -n mais python=3.12 -y
 conda activate mais
 conda install --file requirements_conda.txt -y
-python -m pip install -r requirements.txt
+pip install requirements.txt 
 ```
-If you want to create an animation from your simulation (script [animate.py](scripts/animate.py)) or you want to use `Spreader policy` function for information spread seeding, install `graph-tool`: 
+**Optional:** If you want to create an animation from your simulation (script [animate.py](scripts/animate.py)) or you want to use `Spreader policy` function for information spread seeding, install `graph-tool`: 
 ```console
 conda install -c conda-forge graph-tool
 ```
+**Troubleshooting:** Graph-tool often takes extreme amount of time to install. In such case, it helps to first install `graph-tool` into the clean new environment, and second install the rest of  packages.
+
 <!--For other options and/or more help please refer to the [installation instructions](doc/installation.md).-->
 
 # Usage
