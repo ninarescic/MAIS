@@ -38,6 +38,9 @@ MODEL and POLICY sections depend on the model type used.
 
 ## Information Spread Models Configuration 
 
+<details>
+<summary> click to expand </summary>
+
 For **InfoSirModel** use: 
 
 # MODEL
@@ -71,9 +74,12 @@ Both InfoSIRModel and InfoTipping model can be used together with Spreader polic
 |key|type|default|meaning|
 |---|---|---|---|
 |quantile|string|1.0|centrality quantile to choose node for seeding|
-
+</details>
 
 ## Infection (covid) Spread Model Configuration 
+
+<details>
+<summary> click to expand </summary>
 
 For **SimulationDrivenModel** (infection spread) use:
 
@@ -122,3 +128,4 @@ control various parameters of the model and also to run other policies.
 |<POLICY_ALIAS>_name|string|None|name of policy object|
 |<POLICY_ALIAS>_config|string|None|file with policy config, see [POLICY](policy.md)|
 
+</details>
