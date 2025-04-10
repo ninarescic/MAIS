@@ -32,9 +32,11 @@ This document lists all the sections and their keys.
 |layer_groups|string|--|layer groups definition for contact tracing, optional, needed only by graphs with custom layers|
 |file|string|town.pickle|filename to save the pickled graph|
 
-# MODEL and POLICY
+# MODEL and POLICY Sections 
 
 MODEL and POLICY sections depend on the model type used. 
+
+## Information Spread Models Configuration 
 
 For **InfoSirModel** use: 
 
@@ -71,6 +73,7 @@ Both InfoSIRModel and InfoTipping model can be used together with Spreader polic
 |quantile|string|1.0|centrality quantile to choose node for seeding|
 
 
+## Infection (covid) Spread Model Configuration 
 
 For **SimulationDrivenModel** (infection spread) use:
 
