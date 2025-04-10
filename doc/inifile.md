@@ -41,7 +41,7 @@ For InfoSir Model use:
 For InfoTipping Model use:
 
 
-for SimulationDrivenModel (infection spread) use:
+For SimulationDrivenModel (infection spread) use:
 
 # MODEL
 
