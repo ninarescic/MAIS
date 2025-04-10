@@ -30,17 +30,17 @@ For information spread use:
 ## Examples of Simulation Results
 
 Please follow the links to find out more details about the examples presented.
-+ [InfoSIRModel]() <br>
++ InfoSIRModel <br>
   ```console
   cd scripts
-  sh verona_sir.sh
+  source verona_sir.sh
   ```
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
   <img src="doc/fig/demo_verona_sir.png" width="30%"/>
-+ [TippingModel]() <br>
++ TippingModel <br>
   ```console
   cd scripts
-  sh verona_tipping.sh
+  source verona_tipping.sh
   ```
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.<br>
   <img src="doc/fig/demo_verona_tipping.png" width="30%"/>
@@ -57,7 +57,7 @@ All the requirements can be installed using [conda](https://docs.conda.io/en/lat
 conda create -n mais python=3.12 -y
 conda activate mais
 conda install --file requirements_conda.txt -y
-pip install requirements.txt 
+pip install -r requirements.txt 
 ```
 **Optional:** If you want to create an animation from your simulation (script [animate.py](scripts/animate.py)) or you want to use `Spreader policy` function for information spread seeding, install `graph-tool`: 
 ```console
