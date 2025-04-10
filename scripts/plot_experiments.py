@@ -146,16 +146,21 @@ def run(plot_files, label_names, out_file, fit_me, show_whole_fit, title, column
     \b
     PLOT_FILES   name of the input files - either .csv, .zip or .feather
     """
+    
     infected_states = infected_states.split(',')
-
+    
     if ylabel is None:
         ylabel = f"Number of cases ({column})" 
     
     if label_names is not None:
         label_names = label_names.split(',')
     else:
+        def clean_name(filename):
+            filename = filename.split('/')[-1]
+            filename = filename[::-1].split(".", 1)[-1][::-1]  # removes last suffix
+            return filename.replace("history", "").replace("MODEL","")
         label_names = list(map(
-            lambda x: x[::-1].split(".", 1)[-1][::-1],  # removes last suffix
+            lambda x: clean_name(x),
             plot_files
         ))
 
@@ -183,6 +188,7 @@ def run(plot_files, label_names, out_file, fit_me, show_whole_fit, title, column
             print("--nodes_counts should be comma separated integers.")
             exit(1)
 
+
     dfs = []
     for i, file in enumerate(plot_files):
         print(f"Processing file {file}...")
@@ -198,7 +204,20 @@ def run(plot_files, label_names, out_file, fit_me, show_whole_fit, title, column
             raise ValueError(f"Unsupported file: {file}, supported extensions - .zip, .feather")
 
         if column == "all_infected":
-            df["all_infected"] = df[infected_states].sum(axis=1)
+            for all_inf in (
+                infected_states, 
+                ["I_n","I_a","I_s","E","J_n","J_s"], # for infection spread
+                ["I"], # for SIR model
+                ["Active"] # for Tipping model
+            ):
+                try:
+                    df["all_infected"] = df[all_inf].sum(axis=1)
+                except:
+                    continue
+                break
+            else:
+                raise ValueError("cannot initialize target column")
+                
         if nodes_counts is not None: 
             df["all_infected"] /= nodes_counts[i]
             df["all_infected"] *= 100000
