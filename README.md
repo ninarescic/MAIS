@@ -33,14 +33,14 @@ Please follow the links to find out more details about the examples presented.
 + InfoSIRModel <br>
   ```console
   cd scripts
-  sh verona_sir.sh
+  source verona_sir.sh
   ```
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
   <img src="doc/fig/demo_verona_sir.png" width="30%"/>
 + TippingModel <br>
   ```console
   cd scripts
-  sh verona_tipping.sh
+  source verona_tipping.sh
   ```
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.<br>
   <img src="doc/fig/demo_verona_tipping.png" width="30%"/>
