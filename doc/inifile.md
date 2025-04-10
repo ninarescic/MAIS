@@ -40,7 +40,8 @@ MODEL and POLICY sections depend on the model type used.
 
 <details>
 <summary> click to expand </summary>
-<p></p>
+<p>
+  
 For **InfoSirModel** use: 
 
 # MODEL
@@ -51,7 +52,8 @@ For **InfoSirModel** use:
 |I_duration|number|1|time the I state|
 |init_X|number|0|initial number of nodes in state X; the rest of nodes is asigned to S| 
 
-<p></p>
+<p>
+  
 For **InfoTippingModel** use:
 
 # MODEL
@@ -83,7 +85,8 @@ Both InfoSIRModel and InfoTipping model can be used together with Spreader polic
 <details>
 <summary> click to expand </summary>
 <p>
-For **SimulationDrivenModel** (infection spread) use:
+
+  For **SimulationDrivenModel** (infection spread) use:
 
 # MODEL
 
