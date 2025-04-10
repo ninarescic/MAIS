@@ -30,10 +30,18 @@ For information spread use:
 ## Examples of Simulation Results
 
 Please follow the links to find out more details about the examples presented.
-+ [InfoSIRModel](doc/sir.md) <br>
++ [InfoSIRModel]() <br>
+  ```console
+  cd scripts
+  sh verona_sir.sh
+  ```
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
   <img src="doc/fig/demo_verona_sir.png" width="30%"/>
-+ [TippingModel](doc/tipping.md) <br>
++ [TippingModel]() <br>
+  ```console
+  cd scripts
+  sh verona_tipping.sh
+  ```
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.<br>
   <img src="doc/fig/demo_verona_tipping.png" width="30%"/>
 + [Demo](doc/demo.md) <br>
