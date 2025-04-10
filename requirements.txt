@@ -14,5 +14,4 @@ pytest
 pytest-xdist
 pytest-mock
 pytest-repeat
-GDAL
 cma

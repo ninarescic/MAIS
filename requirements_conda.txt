@@ -12,4 +12,3 @@ urllib3
 pytest
 pytest-xdist
 pytest-mock
-GDAL
