@@ -121,7 +121,23 @@ Now you can create a plot from the resulting files and save it to the path speci
 python plot_experiments.py ../data/output/model/history_my_experiment_*.zip --out_file ./example_img.png
 ```
 ### 4. Animation 
- TODO
+
+ If you want to run animation, you need to have a file with node states from a simulation run. This file is generated if you use 
+
+```
+save_node_states = Yes
+```
+in your config file. Such a config file is for example [verona_ani.ini](config/verona_ani.ini). 
+
+First you run a simulation with such config file
+```console
+python run_experiment.py -r ../config/verona_ani.ini animation
+```
+Then you can run the animation:
+```console
+python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/animation_node_states.csv
+```
+
 
 <!--- PDF BREAK --><!--- PDF BREAK -->
 
