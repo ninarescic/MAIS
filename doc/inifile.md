@@ -55,8 +55,24 @@ For **InfoTippingModel** use:
 |theta|number|0|transmission threashold|
 |init_Active|number|0|initial number of nodes in the Active state; the rest of nodes is asigned to S| 
 
+Both InfoSIRModel and InfoTipping model can be used together with Spreader policy. The corresponding config section is as follows:
 
-For SimulationDrivenModel (infection spread) use:
+# POLICY
+
+|key|type|default|meaning|
+|---|---|---|---|
+|filename|string|info_spreader|the filename with the policy code|
+|name|string|Spreader|the name of the policy class|
+
+# POLICY_SETUP
+
+|key|type|default|meaning|
+|---|---|---|---|
+|quantile|string|1.0|centrality quantile to choose node for seeding|
+
+
+
+For **SimulationDrivenModel** (infection spread) use:
 
 # MODEL
 
