@@ -29,16 +29,31 @@ This document lists all the sections and their keys.
 |nums|string|nums.csv|not used; for backward compatibility| 
 |objects|string|objects.csv|filename for objects| 
 |quarantine|string|--|filename for quarantine specification, optional, needed only by graphs with custom layers|
-|layer_groups|string|--|layer groups defition for contact tracing, optional, needed only by graphs with custom layers|
+|layer_groups|string|--|layer groups definition for contact tracing, optional, needed only by graphs with custom layers|
 |file|string|town.pickle|filename to save the pickled graph|
 
 # MODEL and POLICY
 
 MODEL and POLICY sections depend on the model type used. 
 
-For InfoSir Model use: 
+For **InfoSirModel** use: 
 
-For InfoTipping Model use:
+# MODEL
+
+|key|type|default|meaning|
+|---|---|---|---|
+|beta|number|0|transmission rate|
+|I_duration|number|1|time the I state|
+|init_X|number|0|initial number of nodes in state X; the rest of nodes is asigned to S| 
+
+For **InfoTippingModel** use:
+
+# MODEL
+
+|key|type|default|meaning|
+|---|---|---|---|
+|theta|number|0|transmission threashold|
+|init_Active|number|0|initial number of nodes in the Active state; the rest of nodes is asigned to S| 
 
 
 For SimulationDrivenModel (infection spread) use:
@@ -54,7 +69,7 @@ For SimulationDrivenModel (infection spread) use:
 |ext_epi|number|0|probability of beeing infectious for external nodes|
 |beta|number|0|rate of transmission (upon exposure) (note that transmission depands also on intensity of edge of contact)|
 |beta_reduction|number|0|multiplication coefficient for beta of asymptomatic nodes|
-|theta_Is|number|0|prob of being tested after decision of going to the test is made|      
+|theta_Is|number|0|prob of being tested after the decision of going to the test is made|      
 |test_rate|number|0|prob of deciding to go for test if symptomatic|
 |asymptomatic_rate|number|0|rate of asymtomatic flow after being exposed|
 |init_X|number|0|initial number of nodes in state X; the rest of nodes is asigned to S| 
