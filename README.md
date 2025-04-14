@@ -135,7 +135,7 @@ python run_experiment.py -r ../config/verona_ani.ini animation
 ```
 Then you can run the animation:
 ```console
-python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/animation_node_states.csv
+python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/node_states_animation.csv
 ```
 
 
