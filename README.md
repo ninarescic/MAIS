@@ -81,6 +81,7 @@ Please follow the links to find out more details about the examples presented.
     <td>Detected individuals (active cases)</td>
   </tr>
 </table> 
+
 # Installation
 
 All the requirements can be installed using [conda](https://docs.conda.io/en/latest/) (plus some packages using pip):
