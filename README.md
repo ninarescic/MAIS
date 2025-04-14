@@ -37,6 +37,15 @@ Please follow the links to find out more details about the examples presented.
   ```
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
   <img src="doc/fig/demo_verona_sir.png" width="30%"/>
+  
+  ```console
+  cd scripts
+  source verona_spreader.sh
+  ```
+  Simple examples of information spread modelling using SIR model `InfoSIRModel` with different spreader policies.<br>
+  <img src="doc/fig/demo_verona_spreader.png" width="30%"/>
+  
+  
 + TippingModel <br>
   ```console
   cd scripts
@@ -135,7 +144,7 @@ python run_experiment.py -r ../config/verona_ani.ini animation
 ```
 Then you can run the animation:
 ```console
-python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/animation_node_states.csv
+python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/node_states_animation.csv
 ```
 
 
