@@ -37,6 +37,15 @@ Please follow the links to find out more details about the examples presented.
   ```
   Simple examples of information spread modelling using SIR model `InfoSIRModel`.<br>
   <img src="doc/fig/demo_verona_sir.png" width="30%"/>
+  
+  ```console
+  cd scripts
+  source verona_spreader.sh
+  ```
+  Simple examples of information spread modelling using SIR model `InfoSIRModel` with different spreader policies.<br>
+  <img src="doc/fig/demo_verona_spreader.png" width="30%"/>
+  
+  
 + TippingModel <br>
   ```console
   cd scripts
