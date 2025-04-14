@@ -30,15 +30,16 @@ def main(filename, nodes_file):
     edge_proba = g.new_edge_property("float")
     edge_intensity = g.new_edge_property("float")
 
-    lady = cairo.ImageSurface.create_from_png("lady.png")
-    man = cairo.ImageSurface.create_from_png("man.png")
-    dead = cairo.ImageSurface.create_from_png("zombie.png")
+    lady = cairo.ImageSurface.create_from_png("fig/lady.png")
+    man = cairo.ImageSurface.create_from_png("fig/man.png")
+    dead = cairo.ImageSurface.create_from_png("fig/zombie.png")
 
     node_state_I = g.new_vertex_property("bool")
     node_state_R = g.new_vertex_property("bool")
 
     df = pd.read_csv(nodes_file, index_col=0).transpose()
-
+    max_day = df.shape[1] - 1     
+    
     def update_states(day):
         for i, row in nodes.iterrows():
             node_state_I[i] = df.loc[str(row["id"]), day] == 1
@@ -84,23 +85,29 @@ def main(filename, nodes_file):
         vertex_halo_color=[0.8, 0, 0, 0.6]
     )
 
-    day = 0
+    class Day():
+        def __init__(self, day):
+            self.day = day
+        def increase(self):
+            self.day += 1
+            
+    day = Day(0)
 
-    def update_state():
-        global day
-        update_states(day)
+    def update_state(day):  
+        print("Day", day.day)
+        update_states(day.day)
 
-    
         win.graph.regenerate_surface()
         win.graph.queue_draw()
-        day += 1
+        day.increase()
         time.sleep(2)
-        if day == 10:
+        if day.day > max_day:
+            print("End of simulation")
             return False
         return True
 
 
-    cid = GLib.idle_add(update_state)
+    cid = GLib.idle_add(lambda: update_state(day))
 
     # We will give the user the ability to stop the program by closing the window.
     win.connect("delete_event", Gtk.main_quit)
