@@ -53,11 +53,34 @@ Please follow the links to find out more details about the examples presented.
   ```
   Simple examples of information spread modelling using Tipping model `InfoTippingModel`.<br>
   <img src="doc/fig/demo_verona_tipping.png" width="30%"/>
+  
 + [Demo](doc/demo.md) <br>
   Simple examples of infection transmission model using `SimulationDrivenModel`.<br>
   <img src="doc/fig/demo_tracing.png" width="30%"/>
 
++ [Experiment1](doc/experiment1.md) and [Experiment2](doc/experiment2.md) <br>
+ More sophisticated examples of experiments with `SimulationDrivenModel`. <br>
+ <table>
+<tr>
+  <td><img alt="experiment1_all_infected" src="fig/exp1_all_infected.png"/></td>
+  <td><img alt="experiment1_I_d" src="fig/exp1_id.png"/></td>
+  </tr>
+  <tr> 
+    <td> Infected individuals </td>
+    <td> Detected individuals </td>
+  </tr>
+</table>  
 
+<table>
+<tr>
+  <td><img alt="all infected" src="fig/exp2_all_infected.png"/></td>
+  <td><img alt="detected" src="fig/exp2_id.png"/> </td>
+  </tr> 
+  <tr> 
+    <td>Infected individuals (active cases)</td>
+    <td>Detected individuals (active cases)</td>
+  </tr>
+</table> 
 # Installation
 
 All the requirements can be installed using [conda](https://docs.conda.io/en/latest/) (plus some packages using pip):
