@@ -62,8 +62,8 @@ Please follow the links to find out more details about the examples presented.
  More sophisticated examples of experiments with `SimulationDrivenModel`. <br>
  <table>
 <tr>
-  <td><img alt="experiment1_all_infected" src="doc/fig/exp1_all_infected.png"/></td>
-  <td><img alt="experiment1_I_d" src="doc/fig/exp1_id.png"/></td>
+  <td><img alt="experiment1_all_infected" src="doc/fig/exp1_all_infected.png" width="30%"/></td>
+  <td><img alt="experiment1_I_d" src="doc/fig/exp1_id.png" width="30%"/></td>
   </tr>
   <tr> 
     <td> Infected individuals </td>
@@ -73,8 +73,8 @@ Please follow the links to find out more details about the examples presented.
 
 <table>
 <tr>
-  <td><img alt="all infected" src="doc/fig/exp2_all_infected.png"/></td>
-  <td><img alt="detected" src="doc/fig/exp2_id.png"/> </td>
+  <td><img alt="all infected" src="doc/fig/exp2_all_infected.png" width="30%"/></td>
+  <td><img alt="detected" src="doc/fig/exp2_id.png" width="30%"/> </td>
   </tr> 
   <tr> 
     <td>Infected individuals (active cases)</td>
