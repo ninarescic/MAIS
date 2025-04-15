@@ -1,5 +1,3 @@
-from hyperparam_search.hyperparam_utils import run_hyperparam_search
-from utils.config_utils import ConfigFile
 import timeit
 import random
 import pandas as pd
@@ -10,6 +8,9 @@ import os
 import sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
+
+from hyperparam_search.hyperparam_utils import run_hyperparam_search
+from utils.config_utils import ConfigFile
 
 
 def load_gold_data(csv_path, first_n_zeros=0, data_column=2, from_day=0, until_day=None, use_dates=False):
