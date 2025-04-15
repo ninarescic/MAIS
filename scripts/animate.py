@@ -1,3 +1,5 @@
+import sys
+import os
 import click    
 import time
 import pandas as pd
@@ -5,6 +7,9 @@ import graph_tool.all as gt
 
 import cairo
 from gi.repository import Gtk, GLib
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
+
 
 from utils.config_utils import ConfigFile
 
