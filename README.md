@@ -16,7 +16,7 @@ For information spread use:
       - `beta`: transmision strenght
       - `I_duration`: duration in state I in days
     - policy functions:
-      - [`Spreader`](src/policies/spreader_policy.py): seeds the source of information to the node with pagerank corresponding to given quantile             
+      - [`Spreader`](src/policies/info_spreader.py): seeds the source of information to the node with pagerank corresponding to given quantile             
   + [InfoTippingModel](src/models/agent_info_models.py)
     - the implementation of Tipping model
     - parameters:
