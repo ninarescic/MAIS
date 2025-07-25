@@ -1,5 +1,5 @@
 
-# <img src="./doc/fig/mais.png" style="float: right;" width="5%"/> MAIS
+# <img src="./doc/fig/mais.png" style="float: right;" width="5%"/> MAIS &nbsp; &nbsp; <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.16421566.svg" style="float: left;"/>
 ## Multi-Agent Information/Infection Spread Model 
 
 
