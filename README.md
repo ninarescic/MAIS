@@ -179,3 +179,169 @@ python animate.py ../config/verona_ani.ini --nodes_file ../data/output/model/nod
 Please consult [How to run simulations](doc/run.md) for options of individual scripts,
 [INI file specification](doc/inifile.md), and [How to fit the paremeters](doc/run.md#6-fitting-your-model).
 
+# 🧠 NetRate Inference Module for MAIS
+
+This module extends **MAIS** with the **NetRate algorithm**, allowing you to *reconstruct infection networks* (i.e., infer “who infected whom”) from simulated infection cascades.
+
+---
+
+## ⚙️ Why a Separate Environment?
+
+The NetRate module uses advanced **convex optimization libraries** (`cvxpy`, `mkl-service`) that depend on math backends different from those used in MAIS.
+
+Creating a **dedicated conda environment** for NetRate ensures:
+
+- 🧩 No version conflicts between simulation (MAIS) and optimization (NetRate)
+- ⚡ Faster installation and cleaner dependency management
+- 🧼 Easier troubleshooting and reproducibility
+
+---
+
+## 🧮 Environment Setup
+
+To keep the MAIS simulator and the NetRate optimizer independent, you can choose one of the following setups.
+
+### 🪄 **Option A — Create a clean NetRate environment (recommended)**
+
+This ensures full isolation and avoids dependency conflicts with MAIS (especially around `cvxpy`, `mkl`, and `numpy` versions).
+
+```bash
+conda create -n netrate python=3.12 -y
+conda activate netrate
+conda install --scripts/file requirements_netrate.txt -y
+```
+
+This installs the minimal dependencies needed for inference:
+```
+numpy
+pandas
+scipy
+cvxpy
+matplotlib
+networkx
+mkl-service
+```
+
+You can verify your setup with:
+```bash
+python scripts/netrate/check_env.py
+```
+
+Expected output:
+```
+Python: 3.12.x
+NumPy: 2.x.x
+Pandas: 2.x.x
+SciPy: 1.x.x
+CVXPY: 1.x.x
+OK: all libs import.
+```
+
+---
+
+### 🧩 **Option B — Use the same environment as MAIS**
+
+If you prefer simplicity (one unified setup for all scripts),  
+you can install NetRate’s dependencies directly into your existing `mais` environment:
+
+```bash
+conda activate mais
+conda install --scripts/file requirements_netrate.txt -y
+```
+
+✅ This is convenient for quick testing,  
+⚠️ but it can occasionally lead to library conflicts if you upgrade packages later.
+
+---
+
+## 🔁 NetRate Workflow
+
+| Step | Script | Description | Output |
+|------|---------|-------------|---------|
+| 1️⃣ | `run_experiment_netrate.py` | Run MAIS simulation with per-agent infection logs | `history_netrate_*.zip` |
+| 2️⃣ | `extract_netrate_cascades.py` | Convert MAIS ZIPs into cascades | `netrate_cascades_all.csv` |
+| 3️⃣ | `netrate_infer.py` | Infer transmission rates via convex optimization | `netrate_result.csv` |
+| 4️⃣ | `compare_inferred_to_verona.py` | Compare inferred edges vs. Verona graph | Precision & Recall summary |
+| 5️⃣ | `visualize_netrate_vs_true.py` | Visualize true vs inferred networks | PNG plot |
+
+---
+### 🧩 Ensure Python Recognizes Packages
+Before running NetRate scripts, make sure both `scripts/` and `scripts/netrate/` contain an `__init__.py` file. This ensures Python treats them as packages.
+
+If they don’t exist yet, create them:
+
+```bash
+# Run from the project root (MAIS/)
+# Windows PowerShell:
+New-Item -ItemType File -Force .\scripts\__init__.py
+New-Item -ItemType File -Force .\scripts\netrate\__init__.py
+
+# Linux / macOS:
+touch scripts/__init__.py
+touch scripts/netrate/__init__.py
+```
+
+## 🚀 Example Usage
+
+### Run inference
+```bash
+python scripts/netrate/netrate_infer.py `
+  --cascades data/output/model/netrate/netrate_cascades_all.csv `
+  --out data/output/model/netrate_result.csv
+```
+
+### Compare with ground truth
+```bash
+python scripts/netrate/compare_inferred_to_verona.py
+```
+
+### Visualize the inferred vs. true network
+```bash
+python scripts/netrate/visualize_netrate_vs_true.py
+```
+
+---
+
+## 📈 Example Output
+
+```
+True undirected edges: 224
+Top-K predicted (K=true edges): 224
+TP overlap: 177
+Precision@K: 0.790  Recall@K: 0.790
+```
+
+✅ **Interpretation:**  
+> NetRate successfully recovered ~79% of the true edges among the top 224 inferred links.
+
+---
+
+## 🧩 Files Overview
+
+```
+scripts/netrate/
+│
+├── netrate_infer.py                 # Main inference script
+├── extract_netrate_cascades.py      # Converts MAIS histories to cascades
+├── run_experiment_netrate.py        # Runs MAIS simulations for NetRate
+├── compare_inferred_to_verona.py    # Compares inferred edges to Verona graph
+├── visualize_netrate_vs_true.py     # Plots inferred vs true networks
+├── peek_results.py                  # Preview inferred β values
+├── utils_netrate.py                 # Helper functions
+├── check_env.py                     # Environment verification
+├── requirements_netrate.txt         # Minimal NetRate dependencies
+└── __init__.py
+```
+
+---
+
+## 📚 References
+
+Gomez-Rodriguez, M., Leskovec, J., & Krause, A. (2011).  
+*Inferring Networks of Diffusion and Influence.*  
+KDD ’10: Proceedings of the 16th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining.
+
+---
+
+© 2025 — NetRate Integration for MAIS  
+Developed as an extension for network diffusion inference and analysis.
